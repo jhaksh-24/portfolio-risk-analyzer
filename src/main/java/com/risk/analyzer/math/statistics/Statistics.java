@@ -7,6 +7,9 @@ package com.risk.analyzer.math.statistics;
 
 public class Statistics {
     public static double mean(double[] values) {
+        if (values == null || values.length == 0) {
+            throw new IllegalArgumentException("Array cannot be null or empty");
+        }
         int size = values.length;
         double sum = 0;
 
@@ -18,6 +21,9 @@ public class Statistics {
     }
 
     public static double variance(double[] values) {
+        if (values == null || values.length == 0) {
+            throw new IllegalArgumentException("Array cannot be null or empty");
+        }
         double mean = mean(values);
         double sum = 0;
         int size = values.length;
@@ -32,11 +38,17 @@ public class Statistics {
     }
 
     public static double standardDeviation(double[] values) {
+        if (values == null || values.length == 0) {
+            throw new IllegalArgumentException("Array cannot be null or empty");
+        }
         return Math.sqrt(variance(values));
     }
 
 
     public static double covariance(double[] x, double[] y) {
+        if (values == null || values.length == 0) {
+            throw new IllegalArgumentException("Array cannot be null or empty");
+        }
         int sizeX = x.length;
         int sizeY = y.length;
 
@@ -56,7 +68,13 @@ public class Statistics {
     }
 
     public static double correlation(double[] x, double[] y) {
-        return covariance(x, y)/(standardDeviation(x) * standardDeviation(y));
-    }
-}
+        double stdX = standardDeviation(x);
+        double stdY = standardDeviation(y);
+
+        if (stdX == 0.0 || stdY == 0.0) {
+            return 0.0;  // No correlation if no variance
+        }
+
+        return covariance(x, y) / (stdX * stdY);
+    }}
 

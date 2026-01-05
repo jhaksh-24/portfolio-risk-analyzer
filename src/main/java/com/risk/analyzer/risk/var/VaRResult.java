@@ -1,3 +1,5 @@
+package com.risk.analyzer.risk.var;
+
 class VaRResult {
     private double value;          // The VaR number
     private double confidenceLevel;  // 0.95 or 0.99
@@ -13,19 +15,19 @@ class VaRResult {
     }
 
     // Getters
-    public double getValue(double value)
+    public double getValue()
     {
-        return this.value
+        return this.value;
     }
-    public double getConfidenceLevel(double confidenceLevel)
+    public double getConfidenceLevel()
     {
         return this.confidenceLevel;
     }
-    public int getTimeHorizon(int timeHorizon)
+    public int getTimeHorizon()
     {
         return this.timeHorizon;
     }
-    public String getMethod(String method)
+    public String getMethod()
     {
         return this.method;
     }

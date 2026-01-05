@@ -46,7 +46,7 @@ public class Statistics {
 
 
     public static double covariance(double[] x, double[] y) {
-        if (values == null || values.length == 0) {
+        if (x == null || x.length == 0 || y == null || y.length == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
         int sizeX = x.length;

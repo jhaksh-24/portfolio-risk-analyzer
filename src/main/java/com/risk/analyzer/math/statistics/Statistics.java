@@ -76,5 +76,6 @@ public class Statistics {
         }
 
         return covariance(x, y) / (stdX * stdY);
-    }}
+    }
+}
 

@@ -2,7 +2,7 @@ package com.risk.analyzer.risk.var;
 
 import java.util.Arrays;
 
-class HistoricalVaR {
+public class HistoricalVaR {
     public static VaRResult calculate(double[] returns, double portfolioValue, double confidenceLevel, int timeHorizon) {
         if (returns == null || returns.length == 0) {
             throw new IllegalArgumentException("returns should have a size > 0");
@@ -14,7 +14,8 @@ class HistoricalVaR {
         double[] sorted = sortedCopy(returns);
 
         double alpha = 1.0 - confidenceLevel;
-        int index = (int)(alpha * sorted.length);
+        int index = (int) Math.ceil(alpha * sorted.length) - 1;
+        index = Math.max(0, Math.min(index, sorted.length - 1));
 
         if (index < 0) {
             index = 0;

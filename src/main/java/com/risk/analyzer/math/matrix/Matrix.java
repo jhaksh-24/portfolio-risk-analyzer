@@ -1,6 +1,6 @@
 package com.risk.analyzer.math.matrix;
 
-class Matrix {
+public class Matrix {
     double[][] matrix;
 
     public Matrix(double[][] data) {

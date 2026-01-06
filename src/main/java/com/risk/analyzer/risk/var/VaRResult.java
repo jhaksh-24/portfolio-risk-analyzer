@@ -1,6 +1,6 @@
 package com.risk.analyzer.risk.var;
 
-class VaRResult {
+public class VaRResult {
     private double value;          // The VaR number
     private double confidenceLevel;  // 0.95 or 0.99
     private int timeHorizon;      // Days (1, 10, etc)

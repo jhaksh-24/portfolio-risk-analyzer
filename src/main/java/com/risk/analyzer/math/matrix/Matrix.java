@@ -1,3 +1,5 @@
+package com.risk.analyzer.math.matrix;
+
 class Matrix {
     double[][] matrix;
 
@@ -110,5 +112,19 @@ class Matrix {
         }
 
         return new Matrix(result);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < getRows(); i++) {
+            sb.append("[");
+            for (int j = 0; j < getCols(); j++) {
+                sb.append(String.format("%.2f", get(i, j)));
+                if (j < getCols() - 1) sb.append(", ");
+            }
+            sb.append("]\n");
+        }
+        return sb.toString();
     }
 }
